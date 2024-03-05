@@ -5,15 +5,14 @@ import {
   Animated,
   Easing,
   findNodeHandle,
-  NativeModules,
   PixelRatio,
   ScrollView,
   StyleSheet,
   Text,
   View,
+  UIManager,
 } from 'react-native';
 
-const { UIManager } = NativeModules;
 
 export interface MarqueeTextProps extends TextProps {
   /**
@@ -208,7 +207,7 @@ const MarqueeText = (props: MarqueeTextProps, ref: Ref<MarqueeTextHandles>): JSX
 
       const measureWidth = (component: ScrollView | Text): Promise<number> =>
         new Promise(resolve => {
-          UIManager.measure(findNodeHandle(component), (_x: number, _y: number, w: number) => {
+          UIManager.measure(findNodeHandle(component) as number, (_x: number, _y: number, w: number) => {
             return resolve(w);
           });
         });

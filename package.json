@@ -1,26 +1,36 @@
 {
-  "name": "react-native-marquee",
-  "version": "0.5.0",
+  "name": "@react-native-oh-tpl/react-native-marquee",
+  "version": "0.5.0-0.0.1",
   "description": "React Native Marquee Text Component",
-  "main": "src/index.tsx",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "react-native": "src/index",
+  "source": "src/index",
   "directories": {
     "example": "example"
   },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-check": "tsc -p tsconfig.json",
     "eslint-check": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "release": "release-it"
+    "release": "release-it",
+    "bob": "bob build",
+    "prepare": "npm run bob"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kyo504/react-native-marquee.git"
   },
+  "harmony": {
+    "alias": "react-native-marquee"
+  },
   "keywords": [
     "react-native",
     "marquee",
     "ios",
-    "android"
+    "android",
+    "harmony"
   ],
   "author": "Hunkyo Jung <hunkyo.jung@gmail.com>",
   "license": "MIT",
@@ -42,12 +52,26 @@
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "release-it": "^15.6.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "react-native-builder-bob": "^0.20.4"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {
     "@react-navigation/native-stack": "^6.9.11"
+  },
+  "files": [
+    "harmony",
+    "lib",
+    "src"
+  ],
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module"
+    ]
   }
 }
